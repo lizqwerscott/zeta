@@ -19,7 +19,7 @@ https://github.com/user-attachments/assets/d00b2ad1-f9d1-4309-b2a1-61e7526f920b
      (require 'zeta)
 
      ;; setting llm provide
-     (setq zeta-lmm-provide
+     (setq zeta-llm-provide
            (make-llm-ollama :host "localhost"
                             :port 11434
                             :chat-model "zeta-q8-0"
