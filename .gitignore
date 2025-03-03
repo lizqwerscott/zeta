@@ -1,3 +1,4 @@
 /target
 /elisp_tests
 *.so
+*.dylib
