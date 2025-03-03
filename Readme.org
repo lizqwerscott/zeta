@@ -1,0 +1,30 @@
+* Zeta
+Use the [[https://zed.dev/][Zed]] editor with the open-source [[https://huggingface.co/zed-industries/zeta][Zeta]] model for AI-powered code completion.
+
+#+html: <p align="center">
+https://github.com/user-attachments/assets/d00b2ad1-f9d1-4309-b2a1-61e7526f920b
+#+html: </p>
+
+* Installation
+1. To install the Zeta model using Ollama or vLLM, you can utilize the [[https://huggingface.co/bartowski/zed-industries_zeta-GGUF][zeta-GGUF]] model.
+2. Install the llm package in Emacs.
+3. Download this repository using git clone, and replace the load-path path in the configuration below.
+4. Build dyn code
+   #+begin_src bash
+     ./build.sh
+   #+end_src
+5. Add the following code to your configuration file ~/.emacs:
+   #+begin_src elisp
+     (add-to-list 'load-path "<path-to-zeta>")
+     (require 'zeta)
+
+     ;; setting llm provide
+     (setq zeta-lmm-provide
+           (make-llm-ollama :host "localhost"
+                            :port 11434
+                            :chat-model "zeta-q8-0"
+                            :default-chat-non-standard-params '(("num_ctx" . 512))))
+
+     (add-hook 'prog-mode-hook
+               'zeta-mode)
+   #+end_src

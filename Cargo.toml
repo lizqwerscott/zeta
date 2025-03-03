@@ -1,0 +1,17 @@
+[package]
+name = "zeta"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+name = "zeta_dyn"
+crate-type = ["cdylib"]
+
+[dependencies]
+similar = "2.7.0"
+emacs = "0.19.0"
+
+[dev-dependencies]
+emacs-rs-module = "0.19.0"
